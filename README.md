@@ -1,5 +1,10 @@
-# ble-nrf52-multi-device-connection
-# BLE-Nordic---NRF52
+# ble-nrf52-multi-device-connection (BLE-Nordic---NRF52)
+
+
+BLE multi-device connection system using Nordic nRF52.
+An Android app that connects to multiple wearable devices simultaneously
+and integrates sensor data for real-time visualization.
+
 
 # 요약
 ![image](https://user-images.githubusercontent.com/85280844/147716388-255d9437-72df-4389-88ed-9643d814edc3.png)
@@ -8,13 +13,6 @@
 ![image](https://user-images.githubusercontent.com/85280844/147716436-3e32ccbd-060f-4c37-98a7-39a3ed185bf1.png)
 ![image](https://user-images.githubusercontent.com/85280844/147716471-59a0e9fe-f2b2-45c9-8969-afd81ea390d7.png)
 ![image](https://user-images.githubusercontent.com/85280844/147716495-87c50489-5d00-4ee0-9abf-3c7811db226a.png)
-
-
-# ble-nrf52-multi-device-connection
-
-BLE multi-device connection system using Nordic nRF52.
-An Android app that connects to multiple wearable devices simultaneously
-and integrates sensor data for real-time visualization.
 
 ---
 
@@ -92,7 +90,7 @@ Android app (Java)
 ---
 
 ## Structure
-```
+
 ble-nrf52-multi-device-connection/
 ├── app/
 │   └── src/main/java/
@@ -101,11 +99,11 @@ ble-nrf52-multi-device-connection/
 │       — DB / CSV handling
 │       — Visualization (LineGraph, RealtimeData, SelecttimeData)
 └── build.gradle
-```
-```
 
 
-# 설계
+---
+
+## 설계
 1. 기본설계
 
 ![image](https://user-images.githubusercontent.com/85280844/147715845-f6996eeb-3c0d-4fc0-b453-8231db85329c.png)
