@@ -9,9 +9,100 @@
 ![image](https://user-images.githubusercontent.com/85280844/147716495-87c50489-5d00-4ee0-9abf-3c7811db226a.png)
 
 
-# 목적
-- 웨어러블 기기를 사용하는 사용자들에게 유의미한 서비스를 제공하려면,
-각각의 웨어러블 기기에서 제공하는 데이터가 하나로 통합되어 분석할 수 있어야 한다.
+# ble-nrf52-multi-device-connection
+
+BLE multi-device connection system using Nordic nRF52.
+An Android app that connects to multiple wearable devices simultaneously
+and integrates sensor data for real-time visualization.
+
+---
+
+## Purpose
+
+Meaningful services from wearable devices require data from multiple devices
+to be unified and analyzable in one place.
+The goal was to go beyond single-device BLE connections
+and build simultaneous multi-device connectivity with integrated data visualization.
+
+---
+
+## Core technical challenge
+
+**Implementing BLE multi-connection on Android**
+Android's BLE API is fundamentally designed for single-device connections.
+Implemented multi-device connectivity by repeating the
+`BluetoothDevice.connectGatt()` + `BluetoothGattCallback.onConnectionStateChange()`
+sequence for each device independently.
+Redesigned the callback structure with per-device variables
+so each device can be accessed and managed independently.
+
+---
+
+## System architecture
+```
+Nordic nRF52DK (hardware)
+  + Heart rate sensor
+    ↓
+BLE GATT Profile (custom service/characteristic definitions)
+    ↓
+Android app (Java)
+  — BLE scan and multi-device connection
+  — Real-time data reception
+  — SQLite storage + CSV export
+  — Real-time and time-range graph visualization
+```
+
+---
+
+## Features
+
+**1. Device scan & connection**
+- BLE device scanning and listing
+- Simultaneous multi-device connection
+
+**2. Data collection & storage**
+- Real-time heart rate sensor data reception
+- SQLite database storage
+- CSV export (Bit field based data structure)
+
+**3. Data visualization**
+- Real-time line graph rendering
+- Time-range data query and graph display
+- Simultaneous visualization of multiple connected devices
+
+---
+
+## Design artifacts
+
+- System architecture diagram
+- BLE GATT profile design
+- Use case diagram
+- Sequence diagrams (data usage / device management)
+- Class diagrams (Bluetooth / visualization / data)
+- DB modeling / CSV modeling
+
+---
+
+## Stack
+
+`Java` `Android` `BLE (Bluetooth Low Energy)`
+`Nordic nRF52DK` `GATT Profile` `SQLite`
+
+---
+
+## Structure
+```
+ble-nrf52-multi-device-connection/
+├── app/
+│   └── src/main/java/
+│       — BLE connection management
+│       — Real-time data reception
+│       — DB / CSV handling
+│       — Visualization (LineGraph, RealtimeData, SelecttimeData)
+└── build.gradle
+```
+```
+
 
 # 설계
 1. 기본설계
